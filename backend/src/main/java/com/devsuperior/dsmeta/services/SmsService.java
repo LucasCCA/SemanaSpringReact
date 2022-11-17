@@ -31,11 +31,11 @@ public class SmsService {
 	public void sendSms(Long saleId) {
 		Sale sale = saleRepository.findById(saleId).get();
 		
-		String date = sale.getDate().getDayOfMonth() + "/" + sale.getDate().getMonthValue() + "/"
-		+ sale.getDate().getYear();
+		String date = sale.getDate().getDayOfMonth() + "/" + sale.getDate().getMonthValue() + 
+		"/" + sale.getDate().getYear();
 		
-		String msg = "O Vendedor " + sale.getSellerName() + " foi destaque em " + date
-				+ " com um total de R$ " + String.format("%.2f", sale.getAmount());
+		String msg = "O Vendedor " + sale.getSellerName() + " foi destaque em " + date + 
+		" com um total de R$ " + String.format("%.2f", sale.getAmount());
 
 		Twilio.init(twilioSid, twilioKey);
 
